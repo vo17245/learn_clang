@@ -1,0 +1,6 @@
+import scons_compiledb
+Import('env')
+env = env.Clone()
+scons_compiledb.enable(env)
+env.Program("parse.cpp")
+env.CompileDb()

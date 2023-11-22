@@ -1,0 +1,13 @@
+import sys
+import os
+abs_pwd=os.path.abspath(".")
+root_dir=abs_pwd
+print(abs_pwd)
+env = Environment () 
+env.Append(CPPPATH=[f"{root_dir}/dependencies/clang/include",
+                   f"{root_dir}/vendor"])
+env.Append(LIBPATH=[f"{root_dir}/dependencies/clang/lib"])
+env.Append(LIBS=["libclang"])
+env.Append(CPPFLAGS=["/std:c++17"])
+env.Append(CPPDEFINES=["FMT_HEADER_ONLY"])
+env.SConscript('src/sconscript', 'env',variant_dir='build', duplicate=0)
