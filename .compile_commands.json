@@ -1,7 +1,0 @@
-{
-  "src\\parse.cpp:": {
-    "command": "cl /Fobuild\\parse.obj /c src\\parse.cpp /TP /nologo /std:c++17 /DFMT_HEADER_ONLY /Idependencies\\clang\\include /Ivendor",
-    "directory": "D:\\dev\\learn_clang",
-    "file": "src\\parse.cpp"
-  }
-}
