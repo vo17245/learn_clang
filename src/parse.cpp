@@ -1,7 +1,7 @@
 #include <clang-c/Index.h>
 #include <iostream>
 #include <vector>
-#include "fmt/format.h"
+#include "fmt/core.h"
 
 static std::vector<CXCursor> children;
 CXChildVisitResult record_child(CXCursor current_cursor, CXCursor parent, CXClientData client_data){
