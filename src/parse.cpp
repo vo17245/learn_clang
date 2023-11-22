@@ -27,7 +27,7 @@ static int cur_depth=0;
 static bool flag=false;
 void begin(int depth)
 {
-    
+   
     flag=true;
     cur_depth=depth;
 }
@@ -35,28 +35,20 @@ void print(const std::string& msg)
 {
     if(flag)
     {
-        std::cout<<"|  ";
-        if(cur_depth!=0)
+        
+        for(size_t i=0;i<cur_depth;i++)
         {
-            for(size_t i=0;i<cur_depth-1;i++)
-            {
-                std::cout<<"|  ";
-            }
+            std::cout<<"|  ";
         }
-        std::cout<<"|--";
         flag=false;
         std::cout<<msg<<std::endl;;
     }
     else {
-        std::cout<<"   ";
-        if(cur_depth!=0)
+        for(size_t i=0;i<cur_depth;i++)
         {
-            for(size_t i=0;i<cur_depth-1;i++)
-            {
-                std::cout<<"   ";
-            }
+            std::cout<<"   ";
         }
-        std::cout<<" --"<<msg<<std::endl;
+        std::cout<<"-"<<msg<<std::endl;
     }
     
     
@@ -67,8 +59,8 @@ void end()
 void traversal(CXCursor node,int depth)
 {
     begin(depth);
-    print(fmt::format("display_name {}",get_display_name(node) ));
-    print(fmt::format("type_name {}",get_type_name(node) ));
+    print(fmt::format("{}",get_display_name(node) ));
+    print(fmt::format("type_name: {}",get_type_name(node) ));
     end();
     children.clear();
     clang_visitChildren(
